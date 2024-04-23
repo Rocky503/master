@@ -8,8 +8,9 @@ class NxbService {
     // Phương thức giúp trích xuất dữ liệu hợp lệ từ payload của request
     extractConactData(payload) {
         const nxb = {
-            tenNxb: payload.tenNxb,
-            diaChi: payload.diaChi,
+            MaNXB: payload.MaNXB,
+            TenNxb: payload.TenNxb,
+            DiaChi: payload.DiaChi,
         };
 
         // Loại bỏ các thuộc tính có giá trị không xác định (undefined)

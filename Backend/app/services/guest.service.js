@@ -8,14 +8,14 @@ class GuestService {
     // Phương thức giúp trích xuất dữ liệu hợp lệ từ payload của request
     extractConactData(payload) {
         const guest = {
-            hoLot: payload.hoLot,
-            ten: payload.ten,
-            ngaySinh: payload.ngaySinh,
-            phai: payload.phai,
-            diaChi: payload.diaChi,
-            dienThoai: payload.dienThoai,
-            taiKhoan: payload.taiKhoan,
-            password: payload.password,
+            HoLot: payload.HoLot,
+            Ten: payload.Ten,
+            NgaySinh: payload.NgaySinh,
+            Phai: payload.Phai,
+            DiaChi: payload.DiaChi,
+            DienThoai: payload.DienThoai,
+            TaiKhoan: payload.TaiKhoan,
+            Password: payload.Password,
         };
 
         // Loại bỏ các thuộc tính có giá trị không xác định (undefined)
