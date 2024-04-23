@@ -10,22 +10,24 @@
             <Field name="password" type="text" class="form-control" v-model="guestLocal.password" />
             <ErrorMessage name="password" class="error-feedback" />
         </div>
-        <div class="form-group">
+        <div class="form-group d-flex justify-content-between">
             <button class="btn btn-primary">Đăng nhập</button>
+            <router-link :to="{ name: 'signUp' }" class="nav-link">
+                Đăng ký
+            </router-link>
         </div>
     </Form>
 </template>
 <script>
 import * as yup from "yup";
 import { Form, Field, ErrorMessage } from "vee-validate";
-import nxbService from "@/services/nxb.service";
 export default {
     components: {
         Form,
         Field,
         ErrorMessage,
     },
-    emits: ["submit:guest", "delete:guest"],
+    emits: ["submit:guest"],
     props: {
         guest: { type: Object, required: true }
     },
@@ -47,9 +49,6 @@ export default {
         submitGuest() {
             this.$emit("submit:guest", this.guestLocal);
         },
-    },
-    async mounted() {
-        this.nxbs = await nxbService.getAll();
     },
 };
 </script>

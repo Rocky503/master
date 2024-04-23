@@ -1,7 +1,33 @@
 <script>
+import NxbService from "@/services/nxb.service";
+
 export default {
     props: {
         book: { type: Object, required: true },
+        nxbId: { type: String, required: true },
+    },
+    data() {
+        return {
+            nxbName: "N/A"
+        };
+    },
+    async mounted() {
+        this.fetchNxbName();
+    },
+    watch: {
+        nxbId(newVal) {
+            this.fetchNxbName();
+        }
+    },
+    methods: {
+        async fetchNxbName() {
+            try {
+                const nxb = await NxbService.get(this.nxbId);
+                this.nxbName = nxb.tenNxb;
+            } catch (error) {
+                console.error(error);
+            }
+        }
     },
 };
 </script>
@@ -24,8 +50,8 @@ export default {
             {{ book.soQuyen }}
         </div>
         <div class="p-1">
-            <strong>Nã nhà xuất bản</strong>
-            {{ book.maNxb }}
+            <strong>Nhà xuất bản:</strong>
+            {{ nxbName }}
         </div>
         <div class="p-1">
             <strong>Nguồn gốc:</strong>

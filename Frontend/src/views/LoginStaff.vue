@@ -2,7 +2,8 @@
     <div class="page mt-5 pt-5">
         <h4>Đăng nhập nhân viên</h4>
         <AuthForm :staff="newStaff" @submit:staff="loginStaff" />
-        <div class="toast" :class="{ 'show': message !== '' }" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast bg-danger" :class="{ 'show': message !== '' }" role="alert" aria-live="assertive"
+            aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body">
                     {{ message }}
@@ -59,7 +60,6 @@ export default {
     right: 20px;
     z-index: 1000;
     max-width: 300px;
-    background-color: red;
     color: #fff;
 }
 </style>

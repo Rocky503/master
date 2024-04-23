@@ -25,7 +25,7 @@
             <Field name="phai" as="select" class="form-control" v-model="guestLocal.phai">
                 <option value="">Chọn phái</option>
                 <option value="Nam">Nam</option>
-                <option value="Nữ">Nữ</option>
+                <option value="Nữ">Nu</option>
             </Field>
             <ErrorMessage name="phai" class="error-feedback" />
         </div>

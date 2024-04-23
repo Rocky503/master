@@ -6,8 +6,7 @@ import Login from "@/views/Login.vue";
 import SignUp from "@/views/SignUp.vue";
 import Book_Screen from "@/views/Book_Screen.vue";
 import Borrow from "@/views/Borrow.vue";
-
-
+import BorrowManage from "@/views/BorrowManage.vue";
 
 const routes = [
     {
@@ -44,6 +43,11 @@ const routes = [
         path: "/admin/nxb",
         name: "nxb",
         component: Nxb,
+    },
+    {
+        path: "/admin/borrow",
+        name: "borrowManage",
+        component: BorrowManage,
     },
     {
         path: "/:pathMatch(.*)*",

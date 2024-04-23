@@ -2,7 +2,8 @@
     <div class="page">
         <h4>Đăng ký tài khoản độc giả</h4>
         <SignUpForm :guest="newGuest" @submit:guest="createGuest" />
-        <div class="toast" :class="{ 'show': message !== '' }" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast bg-success" :class="{ 'show': message !== '' }" role="alert" aria-live="assertive"
+            aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body">
                     {{ message }}
@@ -58,7 +59,6 @@ export default {
     right: 20px;
     z-index: 1000;
     max-width: 300px;
-    background-color: green;
     color: #fff;
 }
 </style>
