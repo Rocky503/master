@@ -1,68 +1,47 @@
 const { ObjectId } = require("mongodb");
 
-class NxbService {
+
+class GuestService {
     constructor(client) {
-        this.Nxb = client.db().collection("NhaXuatBan");
+        this.Guest = client.db().collection("DocGia");
     }
     extractConactData(payload) {
-        const nxb = {
-            tenNxb: payload.tenNxb,
+        const guest = {
+            hoLot: payload.hoLot,
+            ten: payload.ten,
+            ngaySinh: payload.ngaySinh,
+            phai: payload.phai,
             diaChi: payload.diaChi,
+            dienThoai: payload.dienThoai,
+            taiKhoan: payload.taiKhoan,
+            password: payload.password,
         };
 
-        Object.keys(nxb).forEach(
-            (key) => nxb[key] === undefined && delete nxb[key]
+        Object.keys(guest).forEach(
+            (key) => guest[key] === undefined && delete guest[key]
         );
-        return nxb;
+        return guest;
     }
 
     async create(payload) {
-        const nxb = this.extractConactData(payload);
-        const result = await this.Nxb.findOneAndUpdate(
-            nxb,
-            { $set: nxb },
+        const guest = this.extractConactData(payload);
+        const result = await this.Guest.findOneAndUpdate(
+            guest,
+            { $set: guest },
             { returnDocument: "after", upsert: true }
         );
         return result;
     }
 
     async find(filter) {
-        const cursor = await this.Nxb.find(filter);
+        const cursor = await this.Guest.find(filter);
         return await cursor.toArray();
     }
-    async findByName(name) {
-        return await this.find({
-            name: { $regex: new RegExp(name), $options: "i" },
-        });
-    }
     async findById(id) {
-        return await this.Nxb.findOne({
+        return await this.Guest.findOne({
             _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
         });
-    }
-    async update(id, payload) {
-        const filter = {
-            _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
-        };
-        const update = this.extractConactData(payload);
-        const result = await this.Nxb.findOneAndUpdate(
-            filter,
-            { $set: update },
-            { returnDocument: "after" }
-        );
-        return result;
-    }
-    async delete(id) {
-        const result = await this.Nxb.findOneAndDelete({
-            _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
-        });
-        return result;
-    }
-
-    async deleteAll() {
-        const result = await this.Nxb.deleteMany({});
-        return result.deletedCount;
     }
 }
 
-module.exports = NxbService;
+module.exports = GuestService;

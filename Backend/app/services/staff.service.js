@@ -2,15 +2,16 @@ const { ObjectId } = require("mongodb");
 
 class StaffService {
     constructor(client) {
-        this.Staff = client.db().collection("NhaXuatBan");
+        this.Staff = client.db().collection("NhanVien");
     }
     extractConactData(payload) {
         const staff = {
-            hoTen: payload.hoten,
+            hoTen: payload.hoTen,
+            taiKhoan: payload.taiKhoan,
             password: payload.password,
             chucVu: payload.chucVu,
-            diaChi: payload.diachi,
-            soDienThoai: payload.soDienThoai
+            diaChi: payload.diaChi,
+            soDienThoai: payload.soDienThoai,
         };
 
         Object.keys(staff).forEach(
@@ -28,6 +29,17 @@ class StaffService {
         );
         return result;
     }
+
+    async find(filter) {
+        const cursor = await this.Staff.find(filter);
+        return await cursor.toArray();
+    }
+    async findById(id) {
+        return await this.Staff.findOne({
+            _id: ObjectId.isValid(id) ? new ObjectId(id) : null,
+        });
+    }
 }
+
 
 module.exports = StaffService;
