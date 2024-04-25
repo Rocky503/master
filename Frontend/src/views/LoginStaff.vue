@@ -35,7 +35,7 @@ export default {
         async loginStaff(data) {
             try {
                 const staffList = await StaffService.getAll();
-                const matchedStaff = staffList.find(staff => staff.taiKhoan === data.taiKhoan && staff.password === data.password);
+                const matchedStaff = staffList.find(staff => staff.TaiKhoan === data.TaiKhoan && staff.Password === data.Password);
                 if (matchedStaff) {
                     this.$root.isLoggedIn = true;
                     this.$router.push({ name: "book" });

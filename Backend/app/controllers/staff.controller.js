@@ -4,12 +4,12 @@ const ApiError = require("../api-error");
 
 // Hàm tạo mới một nhân viên (Staff)
 exports.create = async (req, res, next) => {
-    // Kiểm tra xem trường 'Account' trong body của request có tồn tại không
-    if (!req.body?.Account) {
-        return next(new ApiError(400, "AccountName can not be empty")); // Trả về lỗi nếu trường 'Account' không tồn tại
+    // Kiểm tra xem trường 'TaiKhoan' trong body của request có tồn tại không
+    if (!req.body?.TaiKhoan) {
+        return next(new ApiError(400, "AccountName can not be empty")); // Trả về lỗi nếu trường 'TaiKhoan' không tồn tại
     }
     // Kiểm tra xem trường 'password' trong body của request có tồn tại không
-    if (!req.body?.password) {
+    if (!req.body?.Password) {
         return next(new ApiError(400, "Passoword can not be empty")); // Trả về lỗi nếu trường 'password' không tồn tại
     }
     try {

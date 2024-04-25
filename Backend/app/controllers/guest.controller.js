@@ -4,13 +4,13 @@ const ApiError = require("../api-error");
 
 // Hàm tạo mới một khách hàng
 exports.create = async (req, res, next) => {
-    // Kiểm tra xem trường 'Account' trong body của request có tồn tại không
-    if (!req.body?.Account) {
-        return next(new ApiError(400, "AccountName can not be empty")); // Trả về lỗi nếu trường 'Account' không tồn tại
+    // Kiểm tra xem trường 'Taikhoan' trong body của request có tồn tại không
+    if (!req.body?.Taikhoan) {
+        return next(new ApiError(400, "TaikhoanName can not be empty")); // Trả về lỗi nếu trường 'Taikhoan' không tồn tại
     }
-    // Kiểm tra xem trường 'password' trong body của request có tồn tại không
-    if (!req.body?.password) {
-        return next(new ApiError(400, "Passoword can not be empty")); // Trả về lỗi nếu trường 'password' không tồn tại
+    // Kiểm tra xem trường 'Password' trong body của request có tồn tại không
+    if (!req.body?.Password) {
+        return next(new ApiError(400, "Password can not be empty")); // Trả về lỗi nếu trường 'Password' không tồn tại
     }
     try {
         const guestService = new GuestService(MongoDB.client);

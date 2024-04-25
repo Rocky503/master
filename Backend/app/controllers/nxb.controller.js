@@ -4,9 +4,9 @@ const ApiError = require("../api-error");
 
 // Hàm tạo mới một nhà xuất bản (NXB)
 exports.create = async (req, res, next) => {
-    // Kiểm tra xem trường 'tenNxb' trong body của request có tồn tại không
-    if (!req.body?.tenNxb) {
-        return next(new ApiError(400, "Name can not be empty")); // Trả về lỗi nếu trường 'tenNxb' không tồn tại
+    // Kiểm tra xem trường 'TenNXB' trong body của request có tồn tại không
+    if (!req.body?.TenNXB) {
+        return next(new ApiError(400, "Name can not be empty")); // Trả về lỗi nếu trường 'TenNXB' không tồn tại
     }
     try {
         const nxbService = new NxbService(MongoDB.client);

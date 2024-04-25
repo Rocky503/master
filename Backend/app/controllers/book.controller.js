@@ -4,9 +4,9 @@ const ApiError = require("../api-error");
 
 // Hàm tạo mới một cuốn sách
 exports.create = async (req, res, next) => {
-    // Kiểm tra xem trường 'Bookname' trong body của request có tồn tại không
-    if (!req.body?.Bookname) {
-        return next(new ApiError(400, "Name can not be empty")); // Trả về lỗi nếu trường 'Bookname' không tồn tại
+    // Kiểm tra xem trường 'TenSach' trong body của request có tồn tại không
+    if (!req.body?.TenSach) {
+        return next(new ApiError(400, "Name can not be empty")); // Trả về lỗi nếu trường 'TenSach' không tồn tại
     }
     try {
         const bookService = new BookService(MongoDB.client);

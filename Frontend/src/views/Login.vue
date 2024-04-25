@@ -35,11 +35,11 @@ export default {
         async loginGuest(data) {
             try {
                 const guestList = await GuestService.getAll();
-                const matchedGuest = guestList.find(guest => guest.taiKhoan === data.taiKhoan && guest.password === data.password);
+                const matchedGuest = guestList.find(guest => guest.TaiKhoan === data.TaiKhoan && guest.Password === data.Password);
                 if (matchedGuest) {
                     this.$root.isLoggedInGuest = true;
                     this.$store.dispatch('updateUserId', matchedGuest._id);
-                    this.$router.push({ name: "bookScreen" });
+                    this.$router.push({ name: "BookScreen" });
                 } else {
                     this.message = "Sai tài khoản hoặc mật khẩu.";
                 }

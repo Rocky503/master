@@ -1,14 +1,14 @@
 <template>
     <Form @submit="submitGuest" :validation-schema="guestFormSchema">
         <div class="form-group">
-            <label for="taiKhoan">Tài khoản </label>
-            <Field name="taiKhoan" type="text" class="form-control" v-model="guestLocal.taiKhoan" />
-            <ErrorMessage name="taiKhoan" class="error-feedback" />
+            <label for="TaiKhoan">Tài khoản </label>
+            <Field name="TaiKhoan" type="text" class="form-control" v-model="guestLocal.taiKhoan" />
+            <ErrorMessage name="TaiKhoan" class="error-feedback" />
         </div>
         <div class="form-group">
-            <label for="password">Mật khẩu</label>
-            <Field name="password" type="text" class="form-control" v-model="guestLocal.password" />
-            <ErrorMessage name="password" class="error-feedback" />
+            <label for="Password">Mật khẩu</label>
+            <Field name="Password" type="text" class="form-control" v-model="guestLocal.Password" />
+            <ErrorMessage name="Password" class="error-feedback" />
         </div>
         <div class="form-group d-flex justify-content-between">
             <button class="btn btn-primary">Đăng nhập</button>
@@ -36,7 +36,7 @@ export default {
             taiKhoan: yup
                 .string()
                 .required("Hãy nhập tài khoản!."),
-            password: yup
+            Password: yup
                 .string()
                 .required("Hãy nhập mật khẩu!.")
         });

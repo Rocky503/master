@@ -28,10 +28,10 @@ export default {
     data() {
         return {
             newGuest: {
-                ten: '',
-                hoLot: '',
-                phai: '',
-                diaChi: '',
+                Ten: '',
+                HoLot: '',
+                Phai: '',
+                DiaChi: '',
             },
             message: "",
         };
